@@ -1,5 +1,12 @@
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215)
-    .toString(16)
-    .padStart(6, 0)}`;
+import { getRandomHexColor } from './shared.js'
+
+const buttonRef = document.querySelector(".widget button.change-color");
+const textFieldRef = document.querySelector(".widget span.color");
+
+const handleClick = () => {
+  const color = getRandomHexColor();
+  document.body.style.backgroundColor = color;
+  textFieldRef.textContent = color;
 }
+
+buttonRef.addEventListener("click", handleClick);
